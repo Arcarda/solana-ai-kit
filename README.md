@@ -1,6 +1,10 @@
 # Solana Claude Configuration
 
 [![CI](https://github.com/solanabr/solana-claude-config/actions/workflows/ci.yml/badge.svg)](https://github.com/solanabr/solana-claude-config/actions/workflows/ci.yml)
+![Version](https://img.shields.io/badge/version-1.2.0-blue)
+![License](https://img.shields.io/github/license/solanabr/solana-claude-config)
+![Solana](https://img.shields.io/badge/Solana-black?logo=solana)
+![Claude Code](https://img.shields.io/badge/Claude_Code-powered-orange)
 
 Production-ready Claude Code configuration for full-stack Solana development. Combines best practices from multiple sources into an agent-optimized, token-efficient config you can install and adapt to your specific project.
 
