@@ -8,8 +8,12 @@ set -euo pipefail
 #   bash install.sh --agents /path/to/project   # installs into .agents/ instead of .claude/
 
 REPO_URL="https://github.com/solanabr/solana-claude-config.git"
-BRANCH="main"
 SCRIPT_VERSION="dev"
+
+# Resolve latest tagged release; fall back to main
+LATEST_TAG=$(git ls-remote --tags --sort=-v:refname "$REPO_URL" 'refs/tags/v*' 2>/dev/null \
+  | head -1 | sed 's|.*refs/tags/||; s|\^{}||')
+BRANCH="${LATEST_TAG:-main}"
 
 # Parse flags
 AGENTS_ONLY=false
@@ -56,12 +60,32 @@ fi
 
 echo "Installing Solana Claude Config v$SCRIPT_VERSION to: $TARGET_DIR ($CONFIG_DIR/)"
 
-# Copy .claude/ as $CONFIG_DIR
+# Copy .claude/ as $CONFIG_DIR (selective — protects user files)
 echo "Copying $CONFIG_DIR/ configuration..."
-if [ -d "$TARGET_DIR/$CONFIG_DIR" ]; then
+mkdir -p "$TARGET_DIR/$CONFIG_DIR"
+
+if [ -d "$TARGET_DIR/$CONFIG_DIR/agents" ]; then
   echo "Warning: $CONFIG_DIR/ already exists, merging..."
 fi
-cp -r "$TEMP_DIR/repo/.claude" "$TARGET_DIR/$CONFIG_DIR"
+
+# Directories: always overwrite with upstream (same as update.sh)
+for dir in agents skills rules commands bin; do
+  if [ -d "$TEMP_DIR/repo/.claude/$dir" ]; then
+    cp -r "$TEMP_DIR/repo/.claude/$dir" "$TARGET_DIR/$CONFIG_DIR/"
+  fi
+done
+
+# VERSION + CHANGELOG: always overwrite
+for f in VERSION CHANGELOG.md; do
+  [ -f "$TEMP_DIR/repo/.claude/$f" ] && cp "$TEMP_DIR/repo/.claude/$f" "$TARGET_DIR/$CONFIG_DIR/$f"
+done
+
+# Protected files: only copy if target doesn't exist yet
+for f in settings.json mcp.json MEMORY.md; do
+  if [ -f "$TEMP_DIR/repo/.claude/$f" ] && [ ! -f "$TARGET_DIR/$CONFIG_DIR/$f" ]; then
+    cp "$TEMP_DIR/repo/.claude/$f" "$TARGET_DIR/$CONFIG_DIR/$f"
+  fi
+done
 
 # Copy CLAUDE-solana.md as CLAUDE.md
 echo "Copying CLAUDE.md..."
@@ -108,12 +132,17 @@ if ! grep -qF "CLAUDE.local.md" "$GITIGNORE"; then
   echo "CLAUDE.local.md" >> "$GITIGNORE"
 fi
 
-# Copy .env.example and create .env if missing
+# Merge .env.example (append-only — preserves user edits on reinstall)
+# shellcheck source=.claude/bin/_env_merge.sh
+source "$TEMP_DIR/repo/.claude/bin/_env_merge.sh"
 if [ -f "$TEMP_DIR/repo/.env.example" ]; then
-  cp "$TEMP_DIR/repo/.env.example" "$TARGET_DIR/.env.example"
+  merge_env_file "$TEMP_DIR/repo/.env.example" "$TARGET_DIR/.env.example"
   if [ ! -f "$TARGET_DIR/.env" ]; then
     cp "$TARGET_DIR/.env.example" "$TARGET_DIR/.env"
     echo "Created .env from .env.example"
+  else
+    # Append new keys (with empty values) to existing .env
+    merge_env_file "$TEMP_DIR/repo/.env.example" "$TARGET_DIR/.env"
   fi
 fi
 

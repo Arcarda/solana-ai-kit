@@ -27,6 +27,10 @@ assert_file_exists "$TEMP_DIR/CLAUDE.local.md" "CLAUDE.local.md exists after 1st
 # Capture CLAUDE.local.md content to verify it's preserved
 echo "# My custom local notes" > "$TEMP_DIR/CLAUDE.local.md"
 
+# Write custom user files to verify they survive reinstall
+echo '{"user_custom": true}' > "$TEMP_DIR/.claude/settings.json"
+echo '{"mcpServers": {"my-server": {}}}' > "$TEMP_DIR/.claude/mcp.json"
+
 # Add custom content to CLAUDE.md to verify backup
 ORIGINAL_CLAUDE_MD="$(cat "$TEMP_DIR/CLAUDE.md")"
 
@@ -34,13 +38,23 @@ ORIGINAL_CLAUDE_MD="$(cat "$TEMP_DIR/CLAUDE.md")"
 echo "[second install]"
 SOLANA_CLAUDE_LOCAL_SRC="$REPO_ROOT" bash "$REPO_ROOT/install.sh" "$TEMP_DIR" >/dev/null 2>&1
 
+# Verify NO nesting (.claude/.claude should not exist)
+assert_dir_not_exists "$TEMP_DIR/.claude/.claude" "No .claude/.claude nesting on 2nd install"
+
 assert_file_exists "$TEMP_DIR/CLAUDE.md.bak" "CLAUDE.md.bak created on 2nd install"
 assert_dir_exists "$TEMP_DIR/.claude" ".claude/ still valid after 2nd install"
 assert_dir_exists "$TEMP_DIR/.claude/agents" "agents/ preserved after 2nd install"
 assert_dir_exists "$TEMP_DIR/.claude/commands" "commands/ preserved after 2nd install"
-assert_json_valid "$TEMP_DIR/.claude/settings.json" "settings.json valid after 2nd install"
 assert_count "$TEMP_DIR/.claude/agents" "*.md" "15" "Agent count correct after 2nd install"
 assert_count "$TEMP_DIR/.claude/commands" "*.md" "24" "Command count correct after 2nd install"
+
+# Verify specific files have content (not empty from bad copy)
+assert_file_exists "$TEMP_DIR/.claude/agents/anchor-engineer.md" "Specific agent exists after 2nd install"
+assert_file_exists "$TEMP_DIR/.claude/rules/rust.md" "Rules exist after 2nd install"
+
+# Verify user files were NOT overwritten (protected on reinstall)
+assert_file_contains "$TEMP_DIR/.claude/settings.json" "user_custom" "User settings.json preserved on 2nd install"
+assert_file_contains "$TEMP_DIR/.claude/mcp.json" "my-server" "User mcp.json preserved on 2nd install"
 
 # CLAUDE.local.md should be preserved (not overwritten)
 LOCAL_CONTENT="$(cat "$TEMP_DIR/CLAUDE.local.md")"

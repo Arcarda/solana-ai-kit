@@ -2,6 +2,16 @@
 
 All notable changes to solana-claude-config.
 
+## [1.2.1] - 2026-03-31
+
+### Fixed
+- `install.sh` nesting bug: installing into a directory with existing `.claude/` created `.claude/.claude/` instead of merging
+- `install.sh` now preserves user files (`settings.json`, `mcp.json`, `MEMORY.md`) on reinstall instead of overwriting
+
+### Added
+- `test_install_existing_claude.sh` — verifies install into pre-existing `.claude/` directory (no nesting, user files preserved, upstream content installed)
+- Enhanced `test_install_idempotent.sh` with nesting checks and user file preservation assertions
+
 ## [1.2.0] - 2026-03-31
 
 ### Added
