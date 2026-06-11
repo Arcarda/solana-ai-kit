@@ -22,7 +22,7 @@ If you installed manually, remember to rename ./CLAUDE-solana.md back to ./CLAUD
 A complete `.claude/` configuration that turns Claude into a Solana development expert with:
 
 - **15 specialized agents** for different tasks (architecture, Anchor, Pinocchio, DeFi, tokens, frontend, mobile, backend, DevOps, QA, docs, games, Unity, learning, research)
-- **24 workflow commands** for building, testing, deploying, profiling, migrating, and committing
+- **25 workflow commands** for building, testing, deploying, profiling, migrating, and committing
 - **6 MCP server integrations** for on-chain data (Helius), Solana docs (solana-dev), library docs (Context7), browser automation (Playwright), context optimization (context-mode), and persistent memory (memsearch)
 - **Agent teams** for multi-step workflows (architect → engineer → QA)
 - **Progressive skill loading** that only loads context when needed (saves tokens)
@@ -89,7 +89,7 @@ This guides you through API key configuration for Helius, Context7, and other MC
 | `ext/cloudflare` | [cloudflare/skills](https://github.com/cloudflare/skills) | Infrastructure (Workers, Agents SDK, MCP servers) |
 | `ext/trailofbits` | [trailofbits/skills](https://github.com/trailofbits/skills) | Security auditing and vulnerability scanning |
 | `ext/qedgen` | [QEDGen/solana-skills](https://github.com/QEDGen/solana-skills) | Formal verification with Lean 4 theorem proving |
-| `ext/solana-mobile` | [nicoorfi/solana-mobile](https://github.com/nicoorfi/solana-mobile) | Mobile Wallet Adapter, Genesis Token, SKR address resolution |
+| `ext/solana-mobile` | [solana-mobile/solana-mobile-dev-skill](https://github.com/solana-mobile/solana-mobile-dev-skill) | Mobile Wallet Adapter, Genesis Token, SKR address resolution |
 | `ext/colosseum` | [ColosseumOrg/colosseum-copilot](https://github.com/ColosseumOrg/colosseum-copilot) | Startup research, idea validation, hackathon projects (proprietary license) |
 | `ext/safe-solana-builder` | [frankcastleauditor/safe-solana-builder](https://github.com/frankcastleauditor/safe-solana-builder) | Security-first code generation (70+ audit-derived rules) |
 | `ext/vercel` | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) | Vercel deployment, Next.js, AI SDK, v0, edge functions |
@@ -174,7 +174,8 @@ Pre-configured MCP servers in `.mcp.json` (API keys go in `.env`):
 ├── tests/                       # Config integrity test suite
 ├── .github/workflows/
 │   ├── ci.yml                       # PR validation
-│   └── claude-code.yml              # Claude Code action template
+│   ├── claude-code.yml              # Claude Code action template
+│   └── claude.yml                   # @claude mention responder (issues/PRs)
 └── .claude/
     ├── VERSION                  # Semver version (e.g. 1.4.0)
     ├── agents/                  # 15 specialized agents

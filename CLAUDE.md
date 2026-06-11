@@ -15,15 +15,15 @@ You are maintaining the **solana-claude-config** repository - a template/library
 ## Token Loading Model
 <!-- WHY: Understanding when each file loads determines your token budget.
      CLAUDE.md is a user message (not system prompt) — shorter = better adherence.
-     Rules without paths: load at session start, so keep them minimal. -->
+     Rules without globs: load at session start, so keep them minimal. -->
 
 | File | When loaded | Budget guidance |
 |------|-------------|-----------------|
 | `CLAUDE.md` | Session start; delivered as user message (uncached) | Keep <200 lines; costs every turn |
 | `CLAUDE-solana.md` | Session start (user projects) | Keep <120 lines; uncached; HTML comments stripped (free) |
 | `MEMORY.md` | Session start | 200-line / 25KB cap; index pointers only |
-| `.claude/rules/*.md` (with `paths:`) | Lazy — on matching file read | Can be detailed; zero startup cost |
-| `.claude/rules/*.md` (no `paths:`) | Session start | Minimal — always loaded |
+| `.claude/rules/*.md` (with `globs:`) | Lazy — on matching file read | Can be detailed; zero startup cost |
+| `.claude/rules/*.md` (no `globs:`) | Session start | Minimal — always loaded |
 | `.claude/agents/*.md` | On agent spawn | Can be detailed |
 | `.claude/commands/*.md` | On invocation | Can be detailed |
 | `.claude/skills/SKILL.md` | On invocation | Medium; HTML comments NOT stripped |

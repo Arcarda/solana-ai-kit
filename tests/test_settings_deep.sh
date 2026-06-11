@@ -64,7 +64,7 @@ except (KeyError, IndexError, TypeError):
 echo "[env]"
 assert_eq "1" "$(json_get '["env"]["CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS"]')" "env.CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS == 1"
 assert_eq "1" "$(json_get '["env"]["CLAUDE_CODE_COORDINATOR_MODE"]')" "env.CLAUDE_CODE_COORDINATOR_MODE == 1"
-assert_eq "auto" "$(json_get '["env"]["CLAUDE_CODE_EFFORT_LEVEL"]')" "env.CLAUDE_CODE_EFFORT_LEVEL == auto"
+assert_eq "max" "$(json_get '["env"]["CLAUDE_CODE_EFFORT_LEVEL"]')" "env.CLAUDE_CODE_EFFORT_LEVEL == max"
 
 # --- Sandbox ---
 echo "[sandbox]"
