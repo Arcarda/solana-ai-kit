@@ -54,7 +54,7 @@ After setup, run `/setup-mcp` in Claude Code to configure:
 | **solana-guide** | Learning and tutorials |
 | **solana-researcher** | Ecosystem research |
 
-### 25 Slash Commands
+### 29 Slash Commands
 
 **Building:**
 - `/build-program` - Build Anchor or native programs
@@ -68,6 +68,8 @@ After setup, run `/setup-mcp` in Claude Code to configure:
 - `/test-dotnet` - Run .NET/Unity tests
 - `/test-and-fix` - Run tests and auto-fix issues
 - `/audit-solana` - Security audit
+- `/audit-infra` - Infra-first security audit (secrets, supply chain, CI/CD, LLM security)
+- `/product-review` - Product quality review with scorecard (`--harsh` to roast)
 - `/diff-review` - AI-powered diff review
 - `/profile-cu` - CU profiling per instruction
 - `/benchmark` - CU benchmarks before/after
@@ -88,6 +90,8 @@ After setup, run `/setup-mcp` in Claude Code to configure:
 - `/plan-feature` - Plan feature implementation
 - `/update` - Update config to latest upstream
 - `/cleanup` - Initialize forked template, remove scaffolding
+- `/doctor` - Health check for environment + config, one fix-it command per failure
+- `/dream` - Consolidate memory: dedupe, prune, re-rank learnings
 
 ### Agent Teams
 
@@ -149,7 +153,7 @@ your-project/
 ├── CLAUDE.md              # ← Main config (copied from CLAUDE-solana.md)
 ├── .claude/
 │   ├── agents/            # 15 specialized AI agents
-│   ├── commands/          # 25 slash commands
+│   ├── commands/          # 29 slash commands
 │   ├── skills/            # Progressive knowledge
 │   │   ├── SKILL.md           # Unified hub (start here)
 │   │   ├── ext/               # External skill submodules
@@ -162,7 +166,13 @@ your-project/
 │   │   │   ├── solana-mobile/     # Mobile Wallet Adapter
 │   │   │   ├── colosseum/         # Startup research (Colosseum)
 │   │   │   ├── safe-solana-builder/ # Security-first code gen
-│   │   │   └── vercel/             # Vercel, Next.js, AI SDK
+│   │   │   ├── vercel/             # Vercel, Next.js, AI SDK
+│   │   │   ├── solana-new/         # SendAI idea→launch skills + datasets
+│   │   │   ├── ghostsecurity/      # Ghost Security AppSec skills
+│   │   │   └── defending-code/     # Anthropic vuln-discovery harness
+│   │   ├── idea-sprint/      # Wrapper: find + validate crypto ideas
+│   │   ├── pitch-deck/       # Wrapper: pitch decks for crypto projects
+│   │   ├── hackathon/        # Wrapper: hackathon submissions + grants
 │   │   ├── token-2022.md     # Token Extensions guide
 │   │   ├── backend-async.md  # Axum/Tokio patterns
 │   │   └── deployment.md     # Deploy workflows

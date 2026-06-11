@@ -1,7 +1,7 @@
 # Solana Claude Configuration
 
 [![CI](https://github.com/solanabr/solana-claude-config/actions/workflows/ci.yml/badge.svg)](https://github.com/solanabr/solana-claude-config/actions/workflows/ci.yml)
-![Version](https://img.shields.io/badge/version-1.2.0-blue)
+![Version](https://img.shields.io/badge/version-2.0.0-blue)
 ![License](https://img.shields.io/github/license/solanabr/solana-claude-config)
 ![Solana](https://img.shields.io/badge/Solana-black?logo=solana)
 ![Claude Code](https://img.shields.io/badge/Claude_Code-powered-orange)
@@ -22,7 +22,7 @@ If you installed manually, remember to rename ./CLAUDE-solana.md back to ./CLAUD
 A complete `.claude/` configuration that turns Claude into a Solana development expert with:
 
 - **15 specialized agents** for different tasks (architecture, Anchor, Pinocchio, DeFi, tokens, frontend, mobile, backend, DevOps, QA, docs, games, Unity, learning, research)
-- **25 workflow commands** for building, testing, deploying, profiling, migrating, and committing
+- **29 workflow commands** for building, testing, deploying, profiling, migrating, and committing
 - **6 MCP server integrations** for on-chain data (Helius), Solana docs (solana-dev), library docs (Context7), browser automation (Playwright), context optimization (context-mode), and persistent memory (memsearch)
 - **Agent teams** for multi-step workflows (architect → engineer → QA)
 - **Progressive skill loading** that only loads context when needed (saves tokens)
@@ -93,6 +93,9 @@ This guides you through API key configuration for Helius, Context7, and other MC
 | `ext/colosseum` | [ColosseumOrg/colosseum-copilot](https://github.com/ColosseumOrg/colosseum-copilot) | Startup research, idea validation, hackathon projects (proprietary license) |
 | `ext/safe-solana-builder` | [frankcastleauditor/safe-solana-builder](https://github.com/frankcastleauditor/safe-solana-builder) | Security-first code generation (70+ audit-derived rules) |
 | `ext/vercel` | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) | Vercel deployment, Next.js, AI SDK, v0, edge functions |
+| `ext/solana-new` | [sendaifun/solana-new](https://github.com/sendaifun/solana-new) (MIT) | 32 idea→launch journey skills + idea datasets/knowledge base; routed via local wrappers |
+| `ext/ghostsecurity` | [ghostsecurity/skills](https://github.com/ghostsecurity/skills) (Apache-2.0) | 7 AppSec skills: SAST criteria, SCA, secrets, validation |
+| `ext/defending-code` | [anthropics/defending-code-reference-harness](https://github.com/anthropics/defending-code-reference-harness) (Apache-2.0) | Anthropic vuln-discovery reference harness + 6 skills |
 
 ### Agent Teams
 
@@ -182,7 +185,7 @@ Pre-configured MCP servers in `.mcp.json` (API keys go in `.env`):
     ├── bin/
     │   ├── update.sh                # In-place update from upstream
     │   └── resync.sh                # Submodule resync script
-    ├── commands/                # 25 workflow commands
+    ├── commands/                # 29 workflow commands
     ├── skills/                  # Progressive-loading knowledge
     │   ├── SKILL.md                 # Unified hub routing to all skills
     │   ├── ext/                     # External skill submodules
@@ -195,7 +198,13 @@ Pre-configured MCP servers in `.mcp.json` (API keys go in `.env`):
     │   │   ├── solana-mobile/           # Mobile Wallet Adapter, Genesis Token
     │   │   ├── colosseum/              # Colosseum Copilot (startup research)
     │   │   ├── safe-solana-builder/   # Security-first code generation
-    │   │   └── vercel/                # Vercel deployment, Next.js, AI SDK
+    │   │   ├── vercel/                # Vercel deployment, Next.js, AI SDK
+    │   │   ├── solana-new/            # SendAI idea→launch journey skills + datasets
+    │   │   ├── ghostsecurity/         # Ghost Security AppSec skills
+    │   │   └── defending-code/        # Anthropic vuln-discovery reference harness
+    │   ├── idea-sprint/             # Wrapper: find + validate crypto ideas (GTM)
+    │   ├── pitch-deck/              # Wrapper: pitch decks for crypto projects (GTM)
+    │   ├── hackathon/               # Wrapper: hackathon submissions + grants (GTM)
     │   ├── token-2022.md            # Token Extensions guide (local)
     │   ├── backend-async.md         # Axum/Tokio patterns (local)
     │   └── deployment.md            # Deployment workflows (local)
@@ -241,6 +250,8 @@ Pre-configured MCP servers in `.mcp.json` (API keys go in `.env`):
 | `/test-dotnet` | Run .NET/C# tests (Unity Test Framework, NUnit) |
 | `/test-and-fix` | Run tests and auto-fix common issues |
 | `/audit-solana` | Comprehensive security audit |
+| `/audit-infra` | Infra-first security audit: secrets, supply chain, CI/CD, LLM/skill security, OWASP, STRIDE |
+| `/product-review` | Product quality review — UX walkthrough, 8-dimension scorecard (`--harsh` for the roast variant) |
 | `/diff-review` | AI-powered diff review for Solana-specific issues |
 | `/profile-cu` | CU profiling per instruction with optimization suggestions |
 | `/benchmark` | CU benchmarks with before/after comparison |
@@ -265,6 +276,8 @@ Pre-configured MCP servers in `.mcp.json` (API keys go in `.env`):
 | `/plan-feature` | Plan feature implementation with specifications |
 | `/update` | Update config to latest version from upstream |
 | `/cleanup` | Initialize forked template — setup CLAUDE.md, remove scaffolding |
+| `/doctor` | Health check for dev environment + config — read-only, one fix-it command per failure |
+| `/dream` | Memory consolidation — dedupe, prune, re-rank MEMORY.md and Project Learnings |
 
 ## DX Scripts
 
@@ -352,6 +365,22 @@ This project builds on excellent work from the community:
 - **[ColosseumOrg/colosseum-copilot](https://github.com/ColosseumOrg/colosseum-copilot)** - Solana startup research, idea validation, and hackathon project discovery from Colosseum. Proprietary license (Copyright Colosseum).
 
 - **[0xquinto/bcherny-claude](https://github.com/0xquinto/bcherny-claude)** - Compiled Boris Cherny's (creator of Claude Code at Anthropic) best practices including verification loops, parallel Claude sessions, and CLAUDE.md patterns.
+
+- **[sendaifun/solana-new](https://github.com/sendaifun/solana-new)** - SendAI + Superteam's idea→launch journey skills, idea datasets, and ecosystem catalogs (basis of the `idea-sprint`, `pitch-deck`, and `hackathon` wrapper skills). The bundled idea datasets draw on primary sources from Superteam, Y Combinator, a16z crypto, and Alliance. MIT licensed:
+
+  > MIT License
+  >
+  > Copyright (c) 2026 SendAI and Superteam
+  >
+  > Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+  >
+  > The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+  >
+  > THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+- **cso** by **gstack** - The infrastructure-first security audit methodology shipped in sendaifun/solana-new (MIT), the basis of our `/audit-infra` command (adapted telemetry-free).
+
+- **[ghostsecurity/skills](https://github.com/ghostsecurity/skills)** and **[anthropics/defending-code-reference-harness](https://github.com/anthropics/defending-code-reference-harness)** - AppSec scanning skills and Anthropic's vulnerability-discovery reference harness, both included as submodules under their Apache-2.0 licenses.
 
 ## License
 
