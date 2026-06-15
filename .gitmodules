@@ -37,3 +37,18 @@
 [submodule ".claude/skills/ext/defending-code"]
 	path = .claude/skills/ext/defending-code
 	url = https://github.com/anthropics/defending-code-reference-harness
+[submodule ".claude/skills/ext/jupiter"]
+	path = .claude/skills/ext/jupiter
+	url = https://github.com/jup-ag/agent-skills
+[submodule ".claude/skills/ext/metaplex"]
+	path = .claude/skills/ext/metaplex
+	url = https://github.com/metaplex-foundation/skill
+[submodule ".claude/skills/ext/helius"]
+	path = .claude/skills/ext/helius
+	url = https://github.com/helius-labs/core-ai
+[submodule ".claude/skills/ext/quicknode-anchor"]
+	path = .claude/skills/ext/quicknode-anchor
+	url = https://github.com/quiknode-labs/solana-anchor-claude-skill
+[submodule ".claude/skills/ext/eth-to-sol"]
+	path = .claude/skills/ext/eth-to-sol
+	url = https://github.com/solana-foundation/eth-to-sol-skill
