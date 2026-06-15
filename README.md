@@ -23,7 +23,7 @@ A complete `.claude/` configuration that turns Claude into a Solana development 
 
 - **15 specialized agents** for different tasks (architecture, Anchor, Pinocchio, DeFi, tokens, frontend, mobile, backend, DevOps, QA, docs, games, Unity, learning, research)
 - **29 workflow commands** for building, testing, deploying, profiling, migrating, and committing
-- **6 MCP server integrations** for on-chain data (Helius), Solana docs (solana-dev), library docs (Context7), browser automation (Playwright), context optimization (context-mode), and persistent memory (memsearch)
+- **7 MCP server integrations** for on-chain data (Helius), Solana docs (solana-dev), library docs (Context7), browser automation (Playwright), context optimization (context-mode), persistent memory (memsearch), and local-validator / mainnet-fork control (Surfpool)
 - **Agent teams** for multi-step workflows (architect → engineer → QA)
 - **Progressive skill loading** that only loads context when needed (saves tokens)
 - **Auto-loading rules** that enforce best practices based on file patterns
@@ -142,6 +142,7 @@ Pre-configured MCP servers in `.mcp.json` (API keys go in `.env`):
 | **Playwright** | Browser automation for dApp testing and visual verification |
 | **context-mode** | Context window optimization — compresses large RPC responses, build logs, and code analysis |
 | **memsearch** | Persistent AI memory across sessions — auto-captures summaries, semantic search, git-friendly storage |
+| **Surfpool** | Agent-driven local validator / mainnet-fork control via the Surfpool CLI — `surfpool mcp` (requires the surfpool CLI) |
 
 ### Token-Efficient Design
 

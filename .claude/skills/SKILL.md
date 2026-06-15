@@ -216,7 +216,7 @@ From [quiknode-labs/solana-anchor-claude-skill](ext/quicknode-anchor/) — **ref
 | Transaction building, Kit types | ext/solana-dev → kit-web3-interop.md |
 | Anchor program code | ext/solana-dev → programs/anchor.md |
 | CU optimization, Pinocchio | ext/solana-dev → programs/pinocchio.md |
-| Unit testing, CU benchmarks | ext/solana-dev → testing.md |
+| Unit testing, CU benchmarks | ext/solana-dev → testing.md (MCP available: `surfpool mcp` for agent-driven local-validator / mainnet-fork control) |
 | Security review, audit | ext/solana-dev → security.md + ext/trailofbits |
 | Backend API, indexer | backend-async.md |
 | Deploy to devnet/mainnet | deployment.md |

@@ -26,8 +26,8 @@ assert_file_contains "$REPO_ROOT/QUICK-START.md" "29 Slash Commands" "QUICK-STAR
 # --- MCP server count cross-references ---
 echo "[mcp]"
 MCP_COUNT=$(python3 -c "import json; print(len(json.load(open('$REPO_ROOT/.mcp.json'))['mcpServers']))" 2>/dev/null)
-assert_eq "6" "$MCP_COUNT" "MCP server count in mcp.json is 6"
-assert_file_contains "$REPO_ROOT/README.md" "6 MCP server" "README.md references 6 MCP servers"
+assert_eq "7" "$MCP_COUNT" "MCP server count in mcp.json is 7"
+assert_file_contains "$REPO_ROOT/README.md" "7 MCP server" "README.md references 7 MCP servers"
 
 # --- MCP servers appear in CLAUDE-solana.md ---
 echo "[mcp-in-claude-solana]"
@@ -42,6 +42,7 @@ while IFS= read -r key; do
     playwright) SEARCH_NAME="Playwright" ;;
     context-mode) SEARCH_NAME="context-mode" ;;
     memsearch) SEARCH_NAME="memsearch" ;;
+    surfpool) SEARCH_NAME="Surfpool" ;;
     *) SEARCH_NAME="$key" ;;
   esac
   assert_file_contains "$REPO_ROOT/CLAUDE-solana.md" "$SEARCH_NAME" "CLAUDE-solana.md mentions MCP server: $SEARCH_NAME"

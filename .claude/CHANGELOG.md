@@ -14,6 +14,7 @@ All notable changes to solana-ai-kit.
 - **GTM wrapper skills**: `idea-sprint`, `pitch-deck`, `hackathon` — thin local wrappers routing into ext/solana-new journey skills and datasets (marketing-video is reference-routed from the hub, no wrapper)
 - **`.claude/context/` phase-handoff convention**: gitignored scratch dir for idea→build→launch context files
 - **Permissions**: deny `Bash(curl *convex.cloud*)` — backstop against upstream telemetry preambles
+- **Surfpool MCP server in the standard install** (keyless; agent-driven local-validator / mainnet-fork control; requires the surfpool CLI) — MCP servers 6→7
 
 ### Changed
 - **Resynced ext submodules to upstream HEADs** (9 advanced): sendai (−drift +phoenix/ranger-finance/lavarage/lifi/arcium/birdeye/wallet-analysis/carbium/sol-incinerator), cloudflare (agents-sdk folds in MCP/AI-agent deployment; +sandbox-sdk), qedgen, safe-solana-builder, solana-dev, solana-mobile, trailofbits, colosseum, vercel; defending-code/ghostsecurity/solana-game/solana-new already at upstream HEAD. Hub SKILL.md routing refreshed (drift row dropped, perps→ranger-finance, +cross-chain/encrypted-compute rows); README sendai purpose de-references Drift

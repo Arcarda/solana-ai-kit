@@ -92,11 +92,16 @@ git ls-remote --tags --sort=-v:refname https://github.com/solanabr/solana-ai-kit
 ```bash
 python3 -c "import json; d=json.load(open('.mcp.json')); print('\n'.join(d.get('mcpServers', {}).keys()))" \
   2>/dev/null || echo "INVALID or missing .mcp.json"
+# surfpool MCP requires the surfpool CLI binary on PATH (keyless, user-installed)
+if grep -q '"surfpool"' .mcp.json 2>/dev/null; then
+  surfpool --version 2>/dev/null || echo "MISSING surfpool CLI"
+fi
 ```
 
-- ✓ `.mcp.json` parses; expected servers listed (helius, solana-dev, context7, playwright, ...)
+- ✓ `.mcp.json` parses; expected servers listed (helius, solana-dev, context7, playwright, surfpool, ...)
 - ✗ Parse failure → fix-it: `bash .claude/bin/update.sh` (restores stock `.mcp.json`)
 - ! Server listed but its API key failed Check 5 → fix-it: `/setup-mcp`
+- ! `.mcp.json` lists `surfpool` but the `surfpool` CLI is missing → fix-it: `curl -L https://surfpool.run/install | sh` (or `brew install txtx/taps/surfpool`)
 
 ## Output
 
@@ -109,11 +114,11 @@ Render exactly one summary table, then fix-its for non-✓ rows only:
 |---|--------------------|--------|---------------------------------|
 | 1 | Core toolchain     | ✓      | node 22.x, npm 10.x, claude 2.x |
 | 2 | Solana CLI         | !      | cluster=mainnet, devnet bal 0   |
-| 3 | Rust/Anchor        | ✓      | anchor 0.31.1 = Anchor.toml     |
+| 3 | Rust/Anchor        | ✓      | anchor 1.0.2 = Anchor.toml      |
 | 4 | Submodules         | ✗      | 2 uninitialized (-)             |
 | 5 | .env keys          | !      | HELIUS_API_KEY empty            |
 | 6 | Config version     | ✓      | 1.5.0 = upstream                |
-| 7 | MCP config         | ✓      | 6 servers parsed                |
+| 7 | MCP config         | ✓      | 7 servers parsed                |
 
 ### Fix-its (run in order)
 1. `git submodule update --init --recursive`

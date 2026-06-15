@@ -30,6 +30,8 @@ For each key below, ask the user to paste a value or say "skip":
 
 For each value provided, write or update the line in `.env`. Skip means leave it empty.
 
+**Note — Surfpool MCP is keyless** (no `.env` entry), but its server (`surfpool mcp`) requires the `surfpool` CLI binary on PATH. Install is the user's responsibility — do not run it for them: `curl -L https://surfpool.run/install | sh` or `brew install txtx/taps/surfpool`. Verify with `command -v surfpool`.
+
 ## Step 3: Summary
 
 Print which keys are configured vs skipped:

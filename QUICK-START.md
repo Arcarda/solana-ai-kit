@@ -29,6 +29,7 @@ After setup, run `/setup-mcp` in Claude Code to configure:
 - **Playwright** — Browser automation for dApp testing (no key needed)
 - **context-mode** — Context window optimization for large responses (no key needed)
 - **memsearch** — Persistent AI memory across sessions (no key needed)
+- **Surfpool** — Agent-driven local validator / mainnet-fork control (no key needed; requires the `surfpool` CLI installed)
 
 ---
 

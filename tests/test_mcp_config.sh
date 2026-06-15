@@ -31,6 +31,7 @@ assert_contains "$MCP_CONTENT" '"playwright"' ".mcp.json has playwright server"
 assert_contains "$MCP_CONTENT" '"solana-dev"' ".mcp.json has solana-dev server"
 assert_contains "$MCP_CONTENT" '"context-mode"' ".mcp.json has context-mode server"
 assert_contains "$MCP_CONTENT" '"memsearch"' ".mcp.json has memsearch server"
+assert_contains "$MCP_CONTENT" '"surfpool"' ".mcp.json has surfpool server"
 
 # settings.json must enable project MCP servers (otherwise they stay pending)
 SETTINGS_CONTENT="$(cat "$SETTINGS_FILE")"

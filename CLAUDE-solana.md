@@ -58,6 +58,7 @@ MCP servers are configured in `.mcp.json`. API keys go in `.env` (never in mcp.j
 - **Playwright** — Browser automation for dApp testing
 - **context-mode** — Compresses large RPC responses and build logs to save context
 - **memsearch** — Persistent memory across sessions with semantic search
+- **Surfpool** — Agent-driven local validator / mainnet-fork control (keyless; needs the `surfpool` CLI)
 
 Run `/setup-mcp` to configure API keys and verify connections.
 
