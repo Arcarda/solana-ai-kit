@@ -191,7 +191,7 @@ your-project/
 │   │   │   ├── helius/             # Official Helius + SVM internals
 │   │   │   ├── quicknode-anchor/   # Anchor/Quasar refs (quarantined)
 │   │   │   └── eth-to-sol/         # EVM/Solidity → Anchor porting
-│   │   ├── registry/        # Scout new repos/skills/MCPs + watchlists
+│   │   ├── skill-registry.json # Opt-in add-on catalog (repos/skills/MCPs)
 │   │   ├── idea-sprint/      # Wrapper: find + validate crypto ideas
 │   │   ├── pitch-deck/       # Wrapper: pitch decks for crypto projects
 │   │   ├── hackathon/        # Wrapper: hackathon submissions + grants

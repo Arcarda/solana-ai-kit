@@ -6,8 +6,7 @@ You are running .NET/C# tests. This command covers Unity Test Framework (Edit Mo
 
 ## Related Skills
 
-- [unity.md](../skills/unity.md) - Unity patterns and testing
-- [playsolana.md](../skills/playsolana.md) - PlaySolana specifics
+- [solana-game SKILL.md](../skills/ext/solana-game/skill/SKILL.md) - Unity patterns, testing + PlaySolana specifics
 
 ---
 

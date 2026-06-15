@@ -6,8 +6,7 @@ You are building a Unity project for Solana game development. Follow these steps
 
 ## Related Skills
 
-- [unity.md](../skills/unity.md) - Unity SDK patterns
-- [playsolana.md](../skills/playsolana.md) - PlaySolana/PSG1 specifics
+- [solana-game SKILL.md](../skills/ext/solana-game/skill/SKILL.md) - Unity SDK + PlaySolana/PSG1 patterns
 
 ## Step 1: Identify Project and Target
 

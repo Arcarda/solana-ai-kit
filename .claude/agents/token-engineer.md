@@ -10,9 +10,9 @@ You are a token engineering specialist with deep expertise in Solana's Token-202
 ## Related Skills & Commands
 
 - [confidential-transfers.md](../skills/ext/solana-dev/skill/references/confidential-transfers.md) - Confidential transfer patterns
-- [metaplex](../skills/ext/sendai/skills/metaplex/SKILL.md) - Metaplex metadata standards
+- [metaplex](../skills/ext/metaplex/skills/metaplex/SKILL.md) - Metaplex metadata standards
 - [pumpfun](../skills/ext/sendai/skills/pumpfun/SKILL.md) - Token launch mechanics
-- [jupiter](../skills/ext/sendai/skills/jupiter/SKILL.md) - DEX integration for liquidity
+- [jupiter](../skills/ext/jupiter/skills/integrating-jupiter/SKILL.md) - DEX integration for liquidity
 - [meteora](../skills/ext/sendai/skills/meteora/SKILL.md) - Liquidity bootstrapping
 - [security.md](../skills/ext/solana-dev/skill/references/security.md) - Security checklist
 - [programs/anchor.md](../skills/ext/solana-dev/skill/references/programs/anchor.md) - Anchor patterns

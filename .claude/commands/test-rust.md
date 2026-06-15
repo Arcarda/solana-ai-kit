@@ -6,8 +6,8 @@ You are running Rust tests. This command covers Solana program testing (Mollusk,
 
 ## Related Skills
 
-- [testing.md](../skills/testing.md) - Testing strategy details
-- [security.md](../skills/security.md) - Security testing checklist
+- [testing.md](../skills/ext/solana-dev/skill/references/testing.md) - Testing strategy details
+- [security.md](../skills/ext/solana-dev/skill/references/security.md) - Security testing checklist
 - [programs/anchor.md](../skills/ext/solana-dev/skill/references/programs/anchor.md) - Anchor test patterns
 - [programs/pinocchio.md](../skills/ext/solana-dev/skill/references/programs/pinocchio.md) - Pinocchio test patterns
 

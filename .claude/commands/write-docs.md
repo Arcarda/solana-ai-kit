@@ -11,7 +11,7 @@ $ARGUMENTS
 ## Related Context
 
 - **Solana Programs**: See [programs/anchor.md](../skills/ext/solana-dev/skill/references/programs/anchor.md) for IDL patterns
-- **Unity/C#**: See [unity.md](../skills/unity.md) for XML doc patterns
+- **Unity/C#**: See [solana-game SKILL.md](../skills/ext/solana-game/skill/SKILL.md) for Unity/C# patterns
 - **Detailed Templates**: See **tech-docs-writer** agent for full templates
 
 ## Documentation Strategy

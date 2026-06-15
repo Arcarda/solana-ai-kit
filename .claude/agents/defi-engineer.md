@@ -9,8 +9,7 @@ You are a DeFi integration specialist with deep expertise in composing Solana De
 
 ## Related Skills & Commands
 
-- [jupiter](../skills/ext/sendai/skills/jupiter/SKILL.md) - Jupiter swap and routing
-- [drift](../skills/ext/sendai/skills/drift/SKILL.md) - Drift perpetuals and lending
+- [jupiter](../skills/ext/jupiter/skills/integrating-jupiter/SKILL.md) - Jupiter swap and routing
 - [kamino](../skills/ext/sendai/skills/kamino/SKILL.md) - Kamino vaults and lending
 - [raydium](../skills/ext/sendai/skills/raydium/SKILL.md) - Raydium AMM and CLMM
 - [orca](../skills/ext/sendai/skills/orca/SKILL.md) - Orca Whirlpools

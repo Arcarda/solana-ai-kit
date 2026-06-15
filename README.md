@@ -234,7 +234,7 @@ Pre-configured MCP servers in `.mcp.json` (API keys go in `.env`):
     │   │   ├── helius/                # Official Helius infra + SVM internals
     │   │   ├── quicknode-anchor/      # Anchor/Quasar reference files (quarantined)
     │   │   └── eth-to-sol/            # EVM/Solidity → Anchor porting
-    │   ├── registry/                # Scout new repos/skills/MCPs + watchlists
+    │   ├── skill-registry.json     # Opt-in add-on catalog (repos/skills/MCPs)
     │   ├── idea-sprint/             # Wrapper: find + validate crypto ideas (GTM)
     │   ├── pitch-deck/              # Wrapper: pitch decks for crypto projects (GTM)
     │   ├── hackathon/               # Wrapper: hackathon submissions + grants (GTM)
