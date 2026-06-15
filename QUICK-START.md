@@ -4,7 +4,8 @@
 
 ```bash
 # Option 1: One-liner installer (recommended)
-curl -fsSL https://raw.githubusercontent.com/solanabr/solana-ai-kit/main/install.sh | bash
+curl -fsSL https://aikit.superteam.codes | bash
+# Fallback (or before the aikit.superteam.codes DNS is live): curl -fsSL https://raw.githubusercontent.com/solanabr/solana-ai-kit/main/install.sh | bash
 
 # Option 2: Manual setup
 git clone --recurse-submodules https://github.com/solanabr/solana-ai-kit.git

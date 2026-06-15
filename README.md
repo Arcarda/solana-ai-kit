@@ -38,10 +38,12 @@ claude -m "/cleanup"  # then start claude code running /cleanup so top-level dir
 
 
 # Option 1: One-liner installer (Claude Code)
-curl -fsSL https://raw.githubusercontent.com/solanabr/solana-ai-kit/main/install.sh | bash
+curl -fsSL https://aikit.superteam.codes | bash
+# Fallback (or before the aikit.superteam.codes DNS is live): curl -fsSL https://raw.githubusercontent.com/solanabr/solana-ai-kit/main/install.sh | bash
 
 # Option 2: One-liner installer (Codex, Opencode, everything else)
-curl -fsSL https://raw.githubusercontent.com/solanabr/solana-ai-kit/main/install.sh | bash -s -- --agents
+curl -fsSL https://aikit.superteam.codes | bash -s -- --agents
+# Fallback (or before the aikit.superteam.codes DNS is live): curl -fsSL https://raw.githubusercontent.com/solanabr/solana-ai-kit/main/install.sh | bash -s -- --agents
 
 # Option 3: Manual setup
 git clone --recurse-submodules https://github.com/solanabr/solana-ai-kit.git

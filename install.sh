@@ -3,7 +3,8 @@ set -euo pipefail
 
 # Solana AI Kit Installer
 # Usage:
-#   curl -fsSL https://raw.githubusercontent.com/solanabr/solana-ai-kit/main/install.sh | bash
+#   curl -fsSL https://aikit.superteam.codes | bash
+#   (fallback if DNS not yet live: curl -fsSL https://raw.githubusercontent.com/solanabr/solana-ai-kit/main/install.sh | bash)
 #   bash install.sh /path/to/project
 #   bash install.sh --agents /path/to/project   # installs into .agents/ instead of .claude/
 
