@@ -51,6 +51,14 @@ cp -r solana-ai-kit/.claude /path/to/your-project/
 cp solana-ai-kit/CLAUDE-solana.md /path/to/your-project/CLAUDE.md
 cd /path/to/your-project && git submodule update --init --recursive
 
+# Option 4: Claude Code plugin (run inside Claude Code)
+/plugin marketplace add solanabr/solana-ai-kit
+/plugin install solana-ai-kit@stbr
+# Commands then namespace as /solana-ai-kit:<name>. The plugin is the CORE kit
+# (agents/commands/local skills/MCP/hooks); the curl one-liner (Option 1) is the
+# FULL install, adding rules + permissions/sandbox + the 18 ext/ submodules.
+# Details: see "Install as a Claude Code plugin" below.
+
 # Start Claude Code
 claude
 ```
