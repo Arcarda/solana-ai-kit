@@ -2,6 +2,13 @@
 
 All notable changes to solana-ai-kit.
 
+## [2.0.2] - 2026-06-16
+
+### Security
+- **Deny read/write access to browser-extension wallet storage** (Chrome, Brave, Edge, Firefox, Chromium, Opera, Vivaldi, Arc — across macOS, Linux, and Windows) — the profile data dirs where Phantom/Solflare/Backpack/MetaMask and other extension wallets keep encrypted vaults (`Local Extension Settings/`, `IndexedDB/`, `Local Storage/`). Added as `sandbox.denyWrite` path prefixes and `permissions.deny` `Read(...)` globs (plus a cross-cutting `Read(**/Local Extension Settings/**)`); broad profile-dir deny is wallet-agnostic and future-proof
+- **Added `gate-bash-secrets` PreToolUse hook** — blocks shell (Bash) reads of private keys, wallet vaults, and credentials (exits non-zero before the command runs). Covers the key/cred paths plus all browser profile dirs above; carefully scoped so program keypairs in `target/deploy/`, project `*.pem` certs, and browser *binaries* (`google-chrome --headless`) stay allowed
+- **Read-tool deny coverage for key/cred paths** — `permissions.deny` now also has `Read(...)` globs for `~/.ssh`, `~/.gnupg`, `~/.aws`, `~/.config/solana/id.json`, `~/.npmrc`, `~/.git-credentials`, `~/.netrc`, `~/.config/gh/hosts.yml`, `~/.kube/config`, `~/.cargo/credentials.toml`, `~/.docker/config.json`, `~/.pypirc`, `~/.gem/credentials` (complements the v2.0.1 `denyWrite` + the new Bash hook)
+
 ## [2.0.1] - 2026-06-16
 
 ### Security
